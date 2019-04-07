@@ -9,36 +9,67 @@
   <h1>Mbiant Apparel</h1>
 </div>
 
-<div class="subHeading">
-  <h3> Please select a product you would like to purchase from below: </h3>
+<div class="cart" align="right">
+  <a href="shoppingCart.html" class="button">Go to Shopping Cart</a>
 </div>
 
 <div class="row">
   <div class="column">
-    <a href="file:///C:/Apache/htdocs/CPSC471/aboutUs.html">
+    <button onclick="myFunction()">
       <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923" alt="Shoes" class = "image">
       <div class="overlay">
-        <h4> Shoes </h4>
+        <h5> Color: White <br> Price: $90 <br> Gender: F <br> Size: M <br> Quantity: 2 <br> Barcode: 1234 </h5>
       </div>
-    </a>
+  </button>
   </div>
   <div class="column">
-    <a href="https://www.w3schools.com/html/html_images.asp">
-      <img src="https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2018/10/30/goods-img/1540938430257333758.jpg" alt="Jacket" class = "image">
+    <button onclick="myFunction()">
+      <img src="https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg" alt="Jacket" class = "image">
       <div class="overlay">
-        <h4> Jackets </h4>
+          <h5> Color: Grey <br> Price: $120 <br> Gender: M <br> Size: M <br> Quantity: 3 <br> Barcode: 2123 </h5>
       </div>
-    </a>
+    </button>
   </div>
   <div class="column">
-    <a href="https://www.w3schools.com/html/html_images.asp">
-      <img src="http://prospectusghanaltd.com/wp-content/uploads/2016/12/t-shirts-1.jpg" alt="T-Shirt" class = "image">
+    <button onclick="myFunction()">
+      <img src="https://www.bfgcdn.com/1500_1500_90/114-1236-0211/prana-womens-sway-tank-yoga-tops.jpg" alt="T-Shirt" class = "image">
       <div class="overlay">
-        <h4> Shirts </h4>
+          <h5> Color: Blue <br> Price: $50 <br> Gender: F <br> Size: M <br> Quantity: 1 <br> Barcode: 1345 </h5>
       </div>
-    </a>
+    </button>
   </div>
 </div>
 
+<div class="row">
+  <div class="column">
+    <button onclick="myFunction()">
+      <img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6846215/2018/7/4/a76129c0-5393-4be9-92e6-f50a767e172d1530708777706-Columbus-Men-Navy-Blue-Running-Shoes-9971530708777505-1.jpg" alt="Shoes" class = "image">
+      <div class="overlay">
+          <h5> Color: Blue <br> Price: $150 <br> Gender: M <br> Size: M <br> Quantity: 2 <br> Barcode: 2234 </h5>
+      </div>
+    </button>
+  </div>
+  <div class="column">
+    <button onclick="myFunction()">
+      <img src="http://www.kimscotch.com/images/booztNewBalance-us/14287688.jpg" alt="Jacket" class = "image">
+      <div class="overlay">
+          <h5> Color: Black <br> Price: $130 <br> Gender: F <br> Size: M <br> Quantity: 8 <br> Barcode: 1456 </h5>
+      </div>
+    </button>
+  </div>
+  <div class="column">
+    <button onclick="myFunction()">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/91RUNc0BO%2BL._UX342_.jpg" alt="T-Shirt" class = "image">
+      <div class="overlay">
+          <h5> Color: Grey <br> Price: $40 <br> Gender: M <br> Size: M <br> Quantity: 4 <br> Barcode: 2345 </h5>
+      </div>
+    </button>
+  </div>
+</div>
+<script>
+  function myFunction(){
+    confirm("Product added to cart");
+  }
+</script>
 </body>
 </html>

@@ -36,7 +36,7 @@ h3{
 /* Make the image to responsive */
 .image {
   display: block;
-  width: 100%;
+  width: 450px;
   height: 500px;
 }
 
@@ -47,12 +47,11 @@ h3{
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1;
-  width: 100%;
+  width: 445px;
   transition: .5s ease;
   opacity:0;
   color: black;
   font-family:sans-serif;
-
   font-size: 20px;
   padding: 20px;
   text-align: center;
@@ -61,4 +60,19 @@ h3{
 /* When you mouse over the container, fade in the overlay title */
 .column:hover .overlay {
   opacity: 100;
+}
+
+.button{
+      background-color: black;
+      border: red 5px solid;
+      color: white;
+      padding: 20px 34px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: 500px;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+
 }
