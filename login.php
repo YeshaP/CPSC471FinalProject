@@ -1,9 +1,9 @@
 <?php
 
 $host="localhost"; // Host name 
-$username="elisfrr_ambiant"; // Mysql username 
-$password="t{%sCNjPJAQusma+Pd"; // Mysql password 
-$db_name="elisfrr_ambiant"; // Database name 
+$username="admin"; // Mysql username 
+$password="36a2642b55b0b61dff5c7b0c82abdc64061a9ca769a9fd94"; // Mysql password 
+$db_name="finalProject"; // Database name 
 $tbl_name="customers"; // Table name 
 
 // Connect to server and select databse.
