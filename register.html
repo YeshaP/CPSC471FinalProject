@@ -6,23 +6,41 @@
 <body>
 
 <h1>User Registration</h1>
-<form action="items.html">
-  <div class="register">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Please enter Username" name="username" required>
+<div class="register">
+<form method="POST" action="register.php">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Please enter Username" name="uname" required>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Please enter Password" name="password" required>
+    <label for="pass"><b>Password</b></label>
+    <input type="password" placeholder="Please enter Password" name="pass" required>
 
-    <label for="email"><b>Password</b></label>
-    <input type="text" placeholder="Please enter Email" name="email" required>
+    <label for="fname"><b>First Name</b></label>
+    <input type="text" placeholder="Please enter your first name" name="fname" required>
 
-    <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Please enter Home Address" name="address" required>
+    <label for="mname"><b>Middle Name</b></label>
+    <input type="text" placeholder="Please enter your middle name" name="mname" required>
+    
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" placeholder="Please enter your last name" name="lname" required>
+    
+    <label for="sname"><b>Street Name</b></label>
+    <input type="text" placeholder="Please enter your street name" name="sname" required>
+    
+    <label for="city"><b>City</b></label>
+    <input type="text" placeholder="Please enter your city" name="city" required>
+    
+    <label for="province"><b>Province</b></label>
+    <input type="text" placeholder="Please enter your province" name="province" required>
+    
+    <label for="country"><b>Country</b></label>
+    <input type="text" placeholder="Please enter your country" name="country" required>
+    
+    <label for="postal_code"><b>Postal code</b></label>
+    <input type="text" placeholder="Please enter your postal code" name="postal_code" required>
 
-    <button type="submit"> Register </button>
-  </div>
+    <button type="submit"><input type="submit" name="commit" value="Register"></button>
+  
 </form>
-
+</div>
 </body>
 </html>
