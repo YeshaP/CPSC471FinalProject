@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 08, 2019 at 02:07 PM
+-- Generation Time: Apr 08, 2019 at 02:23 PM
 -- Server version: 5.6.41-84.1
 -- PHP Version: 5.6.30
 
@@ -38,9 +38,17 @@ CREATE TABLE `customers` (
   `city` text COLLATE utf8_unicode_ci NOT NULL,
   `province` text COLLATE utf8_unicode_ci NOT NULL,
   `country` text COLLATE utf8_unicode_ci NOT NULL,
-  `postal_code` int(15) NOT NULL,
+  `postal_code` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(35) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`ID`, `username`, `first_name`, `middle_name`, `last_name`, `street_name`, `city`, `province`, `country`, `postal_code`, `password`) VALUES
+(10000001, 'johndoe@google.ca', 'John', 'A', 'Doe', '1 University Drive', 'Calgary', 'Alberta', 'Canada', 'V0H0H0', 'johndoe'),
+(10000002, 'janedoe@yahoo.ca', 'Jane', 'A', 'Doe', '1 Avenue', 'Calgary', 'Alberta', 'Canada', 'V0H0H1', 'janedoe');
 
 -- --------------------------------------------------------
 
@@ -62,6 +70,13 @@ CREATE TABLE `employees` (
   `password` varchar(35) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`ID`, `username`, `first_name`, `middle_name`, `last_name`, `street_name`, `city`, `province`, `country`, `postal_code`, `password`) VALUES
+(20000001, 'admin', '', '', '', '', '', '', '', '', 'administrator');
+
 -- --------------------------------------------------------
 
 --
@@ -76,8 +91,19 @@ CREATE TABLE `items` (
   `price` int(3) NOT NULL,
   `size` text COLLATE utf8_unicode_ci NOT NULL,
   `gender` text COLLATE utf8_unicode_ci NOT NULL,
-  `quantity` int(4) NOT NULL
+  `quantity` int(4) NOT NULL,
+  `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`name`, `type`, `barcode`, `color`, `price`, `size`, `gender`, `quantity`, `description`) VALUES
+('T-Shirt', 'T-shirt', 'a00100001', 'Blue', 16, 'M', 'M', 50, 'Comfortable, stylish and soft.'),
+('T-Shirt', 'T-Shirt', 'a00100002', 'Black', 16, 'M', 'M', 40, '100% cotton, stylish shirt!'),
+('Jacket', 'Jacket', 'b00100001', 'Brown', 40, 'M', 'F', 25, 'Stylish brown jacket, perfect for any event!'),
+('Socks', 'Socks', 'c00100001', 'Black', 10, 'O', 'O', 50, 'Socks, one-size fit all.');
 
 --
 -- Indexes for dumped tables
@@ -90,6 +116,21 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `ID` (`ID`),
   ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`barcode`),
+  ADD UNIQUE KEY `barcode` (`barcode`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
