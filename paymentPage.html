@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <h1>User Registration</h1>
+  <form>
+    <div class="makePayment">
+      <label for="cardNumber"><b>Card Number</b></label>
+      <input type="text" placeholder="Please enter Card Number" name="cardNumber" required>
+
+      <select>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="Master Card">Master Card</option>
+    </select>
+      <a href="homePage.html" class="button" onclick="if(confirm('Payment Successful')){return true;}else{return false;};" title="LinkTitle">
+        Make Payment
+      </a>
+    </div>
+  </form>
+</body>
+</html>
