@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="login.css">
-</head>
-<body>
+	<head>
+		<title>Login to Ambient</title>
+		<link rel="stylesheet" href="login.css">
+	</head>
+	
+	<body>
 
-<h1>User Login</h1>
-<form action="items.html">
-  <div class="info">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Please enter Username" name="username" required>
+	<h1>User Login</h1>
+	  <div class="info">
+		  
+		<form method="post" action="login.php">
+			<label for="username"><b>Username</b></label>
+			<input type="text" placeholder="Please enter Username" name="username" required>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Please enter Password" name="password" required>
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Please enter Password" name="password" required>
 
-    <button type="submit"> Login </button>
-  </div>
-</form>
+			<button type="submit"><input type="submit" name="commit" value="Login"></button>
+		</form>
+		
+	  </div>
 
-</body>
+	</body>
 </html>
