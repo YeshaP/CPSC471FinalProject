@@ -23,12 +23,10 @@
 	$_postal_code=$_POST['postal_code'];
 	$_pass=$_POST['pass'];
 
-
 	// Check if email already exists
     $sql = "SELECT * FROM customers WHERE username='$u_name' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
-        $errors['email'] = "Email already exists";
         header('Location: register.html');
     }
 
@@ -37,10 +35,10 @@
 	$sql = "INSERT INTO customers VALUES('$u_name', '$f_name', '$m_name', '$l_name', '$s_name', '$_city', '$_province', '$_country', '$_postal_code', '$_pass')";
 
 	if ($conn->multi_query($sql) === TRUE) {
-		echo "New records created successfully";
+		header('Location: login.html');
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn->close();
-?>
+?> 
