@@ -9,16 +9,19 @@
   <form action="paymentPage.php" method="POST">
     <!-- <div class="makePayment"> -->
       <label for="cardNumber"><b>Card Number</b></label>
-      <input type="text" placeholder="Please enter Card Number" name="cardNumber" required>
+      <input type="text" placeholder="Please enter Card Number" name="cardNumber" maxlength="10" required>
 
       <!-- <select name="cartType">
         <option value="Credit Card">Credit Card</option>
         <option value="Debit Card">Debit Card</option>
         <option value="Master Card">Master Card</option>
     </select> -->
-
-    <label for="cardType"><b>Card Type</b></label>
-    <input type="text" placeholder="Please enter Card Type" name="cardType" required>
+    
+    <select name="cardType">
+  		<option value="VISA">VISA</option>
+  		<option value="MasterCard">MasterCard</option>
+  		<option value="American_Express">American Express</option>
+	</select>
 
 
     <button type="submit"><input type="submit" name="commit" value="Payment"></button>
