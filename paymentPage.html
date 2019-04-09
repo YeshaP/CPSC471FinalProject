@@ -6,20 +6,26 @@
 <body>
 
   <h1>User Registration</h1>
-  <form>
-    <div class="makePayment">
+  <form action="paymentPage.php" method="POST">
+    <!-- <div class="makePayment"> -->
       <label for="cardNumber"><b>Card Number</b></label>
       <input type="text" placeholder="Please enter Card Number" name="cardNumber" required>
 
-      <select>
+      <!-- <select name="cartType">
         <option value="Credit Card">Credit Card</option>
         <option value="Debit Card">Debit Card</option>
         <option value="Master Card">Master Card</option>
-    </select>
-      <a href="index.html" class="button" onclick="if(confirm('Payment Successful')){return true;}else{return false;};" title="LinkTitle">
+    </select> -->
+
+    <label for="cardType"><b>Card Type</b></label>
+    <input type="text" placeholder="Please enter Card Type" name="cardType" required>
+
+
+    <button type="submit"><input type="submit" name="commit" value="Payment"></button>
+      <!-- <a href="index.html" class="button" onclick="if(confirm('Payment Successful')){return true;}else{return false;};" title="LinkTitle">
         Make Payment
-      </a>
-    </div>
+      </a> -->
+    <!-- </div> -->
   </form>
 </body>
 </html>
