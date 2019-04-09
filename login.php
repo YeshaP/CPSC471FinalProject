@@ -20,11 +20,12 @@
     if (mysqli_num_rows($result) > 0) {
 		$_SESSION['id'] = $_uname;
         $_SESSION['username'] = $_uname;
+        $_SESSION['loggedin'] = true;
         header('Location: items.html');
     }
     else
     {
-		header('Location; login.html');
+		header('Location: login.php');
 	}
  
 ?>
