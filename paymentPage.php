@@ -1,8 +1,8 @@
 <?php
 	$servername = "localhost";
-	$username = "root";
-	$password = "yesha1998";
-	$dbname = "finalproject";
+	$username = "project";
+	$password = "databases";
+	$dbname = "finalProject";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,11 +11,14 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-
+	session_start();
+	
 	$card_number=$_POST['cardNumber'];
 	$card_type=$_POST['cardType'];
 
-  $uname="Hello";
+
+	$uname=$_SESSION['username'];
+	
 	$sql = "INSERT INTO purchase VALUES('$card_number','$card_type','$uname')";
 	if ($conn->multi_query($sql) === TRUE) {
 		header('Location: index.html');
