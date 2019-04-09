@@ -15,6 +15,8 @@
 
 	$sql = "SELECT * FROM customers WHERE username='$_uname' and password='$_pass'";
     $result = mysqli_query($conn, $sql);
+    
+    session_start();
     if (mysqli_num_rows($result) > 0) {
 		$_SESSION['id'] = $_uname;
         $_SESSION['username'] = $_uname;
