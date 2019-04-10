@@ -18,7 +18,10 @@
     $sql = "SELECT * FROM items WHERE barcode='$barcode'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
-        $sql = "DELETE FROM items,shopping_cart FROM items INNER JOIN shopping_cart WHERE items.barcode=shopping_cart.barcode AND items.barcode='$barcode'";
+        $sql = "DELETE FROM items WHERE barcode='$barcode'";
+        $result = mysqli_query($conn, $sql);
+        
+        $sql = "DELETE FROM shopping_cart WHERE barcode='$barcode'";
         $result = mysqli_query($conn, $sql);
         echo "Product has been deleted";
         $conn->close();
