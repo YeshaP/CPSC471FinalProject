@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +13,14 @@
 </div>
 
 <div class="cart" align="right">
-  <a href="logout.php" class="button">Logout</a>
-  <a href="shoppingCart.php" class="button">Go to Shopping Cart</a>
+  <?php
+  
+		if ($_SESSION['loggedin'] == true)
+		{
+			echo "<a href=\"logout.php\" class=\"button\">Logout</a>";
+			echo "<a href=\"confirmpurchase.php\" class=\"button\">Purchase</a>";
+		}
+  ?>
 </div>
 
 <?php
@@ -29,14 +38,29 @@
 		
 		$uname = $_SESSION['username'];
 		
-		$RunningTotal = 0;
-		
 		$sql = "SELECT * FROM items";
 		$result = mysqli_query($conn, $sql);
 
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo "<div style=\"border-style: solid; display: inline-block; background-color: #5e8cd1; margin-top: 20px;margin-left: 20px;margin-right: 10px;margin-bottom: 20px;text-align:center;\"><img src='$row[url]' height='500px' width='400px' border-style='solid'/><br/><h5 style=\"background-color: #5e8cd1;display: inline-block;text-align:center; margin-bottom:10px\"> Type: $row[type] <br> Color: $row[color] <br> Price: $row[price] <br> Gender: $row[gender] <br> Size: $row[size] <br> Quantity: $row[quantity] <br> Barcode: $row[barcode]</h5><br/><button type=\"button\" id=\"$row[barcode]\">Add to cart</button></div>";
+			echo "<div style=\"border-style: dotted; display: inline-block; background-color: #5e8cd1; padding: 0;margin-top: 20px;margin-left: 10px;margin-right: 2px;margin-bottom: 20px;text-align:center;\">
+			</center><img src='$row[url]' height='300px' width='200px' border-style='solid'/>
+			<br/>
+			<h5 style=\"background-color: #5e8cd1;display: inline-block;text-align:center; margin-bottom:5px\"> 
+			<p style=\"color:white; background-color: #5e8cd1\" >Description: <br>$row[description]</p> <br><br>
+				Type: $row[type] <br> 
+				Color: $row[color] <br> 
+				Price: $row[price] <br> 
+				Gender: $row[gender] <br> 
+				Size: $row[size] <br> 
+				Quantity: $row[quantity] 
+				<br> Barcode: $row[barcode]
+				</h5><br/>
+			<form method=\"POST\" action=\"addtocart.php\">
+				<input type=\"hidden\" value=\"$row[barcode]\" name=\"var\" />
+				<input type=\"submit\" value=\"Add to cart\" />
+			</form>
+			</div>";
 		}
 ?>
 <script>
