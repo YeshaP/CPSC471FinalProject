@@ -35,5 +35,10 @@
 
 	  </div>
 
+		<div class="home">
+		  <br>
+		  <a href="index.html" class="button">Go To Shopping Page</a>
+		</div>
+
 	</body>
 </html>
