@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 09, 2019 at 11:58 PM
+-- Generation Time: Apr 10, 2019 at 03:23 AM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -96,18 +96,20 @@ CREATE TABLE `items` (
   `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `quantity` int(4) NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `image_location` varchar(400) COLLATE utf8_unicode_ci NOT NULL
+  `url` varchar(400) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`name`, `type`, `barcode`, `color`, `price`, `size`, `gender`, `quantity`, `description`, `image_location`) VALUES
-('T-Shirt', 'T-shirt', 'a00100001', 'Blue', 16, 'M', 'M', 50, 'Comfortable, stylish and soft.', 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923'),
-('T-Shirt', 'T-Shirt', 'a00100002', 'Black', 16, 'M', 'M', 40, '100% cotton, stylish shirt!', 'https://www.bfgcdn.com/1500_1500_90/114-1236-0211/prana-womens-sway-tank-yoga-tops.jpg'),
-('Jacket', 'Jacket', 'b00100001', 'Brown', 40, 'M', 'F', 25, 'Stylish brown jacket, perfect for any event!', 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
-('Socks', 'Socks', 'c00100001', 'Black', 10, 'O', 'O', 50, 'Socks, one-size fit all.', 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6846215/2018/7/4/a76129c0-5393-4be9-92e6-f50a767e172d1530708777706-Columbus-Men-Navy-Blue-Running-Shoes-9971530708777505-1.jpg');
+INSERT INTO `items` (`name`, `type`, `barcode`, `color`, `price`, `size`, `gender`, `quantity`, `description`, `url`) VALUES
+('White Shoe', 'Shoe', '1234', 'White', 90, 'M', 'O', 2, 'Comfortable white shoes', 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923'),
+('Grey Jacket', 'Jacket', '2123', 'Grey', 120, 'M', 'O', 3, 'Cozy winter jacket!', 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
+('Blue Top', 'Top', '1345', 'Blue', 50, 'M', 'W', 1, 'Soft beautiful top!', 'https://www.bfgcdn.com/1500_1500_90/114-1236-0211/prana-womens-sway-tank-yoga-tops.jpg'),
+('Running shoes', 'Shoes', '2234', 'Blue', 125, 'M', 'O', 3, 'Comfy running shoes', 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6846215/2018/7/4/a76129c0-5393-4be9-92e6-f50a767e172d1530708777706-Columbus-Men-Navy-Blue-Running-Shoes-9971530708777505-1.jpg'),
+('Black Jacket', 'Jacket', '1456', 'Black', 130, 'M', 'F', 8, 'Cozy winter jacket!', 'http://www.kimscotch.com/images/booztNewBalance-us/14287688.jpg'),
+('Grey Top', 'Top', '2345', 'Grey', 40, 'M', 'M', 4, 'Slick grey top.', 'https://images-na.ssl-images-amazon.com/images/I/91RUNc0BO%2BL._UX342_.jpg');
 
 -- --------------------------------------------------------
 
