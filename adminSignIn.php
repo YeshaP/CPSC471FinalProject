@@ -21,7 +21,7 @@
 		$_SESSION['id'] = $_uname;
         $_SESSION['username'] = $_uname;
         $_SESSION['loggedin'] = true;
-        header('Location: selection.php');
+        header('Location: selection.html');
     }
     else
     {
