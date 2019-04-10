@@ -11,8 +11,6 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-
-	$name=$_POST['name'];
 	$type=$_POST['type'];
 	$barcode=$_POST['barcode'];
 	$color=$_POST['color'];
@@ -34,7 +32,7 @@
 
 
 
-	$sql = "INSERT INTO items VALUES('$name', '$type', '$barcode', '$color', '$price', '$size', '$gender', '$quantity', '$description', '$url')";
+	$sql = "INSERT INTO items VALUES('$type', '$barcode', '$color', '$price', '$size', '$gender', '$quantity', '$description', '$url')";
 
 	if ($conn->multi_query($sql) === TRUE) {
     echo "Product has been added";
