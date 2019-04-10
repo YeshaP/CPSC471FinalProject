@@ -23,7 +23,7 @@
 	<h1>Admin Login</h1>
 	  <div class="info">
 
-		<form method="POST" action="signin.php">
+		<form method="POST" action="adminSignIn.php">
 			<label for="uname"><b>Username</b></label>
 			<input type="text" placeholder="Please enter Username" name="uname" required>
 
