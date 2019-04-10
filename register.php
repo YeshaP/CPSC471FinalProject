@@ -22,6 +22,7 @@
 	$_country=$_POST['country'];
 	$_postal_code=$_POST['postal_code'];
 	$_pass=$_POST['pass'];
+	$shopping_cart_items = 0;
 
 	// Check if email already exists
     $sql = "SELECT * FROM customers WHERE username='$u_name' LIMIT 1";
@@ -32,10 +33,10 @@
 
 
 	
-	$sql = "INSERT INTO customers VALUES('$u_name', '$f_name', '$m_name', '$l_name', '$s_name', '$_city', '$_province', '$_country', '$_postal_code', '$_pass')";
+	$sql = "INSERT INTO customers VALUES('$u_name', '$f_name', '$m_name', '$l_name', '$s_name', '$_city', '$_province', '$_country', '$_postal_code', '$_pass', '$shopping_cart_items')";
 
 	if ($conn->multi_query($sql) === TRUE) {
-		header('Location: login.html');
+		header('Location: login.php');
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
