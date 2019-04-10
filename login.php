@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,11 +10,20 @@
 	</head>
 	
 	<body>
+		
+	<?php
+	
+		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+		{
+			header('Location: items.html');
+		}
+	
+	?>
 
 	<h1>User Login</h1>
 	  <div class="info">
 		  
-		<form method="POST" action="login.php">
+		<form method="POST" action="signin.php">
 			<label for="uname"><b>Username</b></label>
 			<input type="text" placeholder="Please enter Username" name="uname" required>
 
