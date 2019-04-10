@@ -25,7 +25,7 @@
     }
     else
     {
-		header('Location: login.php');
+		header('Location: adminLogin.php');
 	}
 
 ?>
