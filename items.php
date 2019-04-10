@@ -1,30 +1,76 @@
+<head>
+<link rel="stylesheet" href="items.css">
+</head>
+<body>
+
+<div class="heading">
+  <h1>Mbiant Apparel</h1>
+</div>
+
+<div class="cart" align="right">
+  <a href="shoppingCart.html" class="button">Go to Shopping Cart</a>
+</div>
+
 <?php
-	$host="68.183.197.33"; // Host name 
-	$username="DemoAdmin"; // Mysql username 
-	$password="cpsc471db"; // Mysql password 
-	$db_name="finalProject"; // Database name 
-	$tbl_name="items"; // Table name 
-	// Connect to server and select databse.
-	@mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-	mysql_select_db("$db_name")or die("cannot select DB");
-	// username and password sent from form 
-	$username=$_POST['username']; 
-	$password=$_POST['password']; 
-	// To protect MySQL injection (more detail about MySQL injection)
-	$username = stripslashes($username);
-	$password = stripslashes($password);
-	$username = mysql_real_escape_string($username);
-	$password = mysql_real_escape_string($password);
-	$sql="SELECT * FROM $items";
-	$result=mysql_query($sql);
-	// Mysql_num_row is counting table row
-	$count=mysql_num_rows($result);
-	// If result matched $username and $password, table row must be 1 row
-	if($count==1){
-		echo 'error fetching from db'; 
-	}
-	else
-	{
-		header('Location: login.html');
-	}
+$servername = "68.183.197.33";
+$username = "DemoAdmin";
+$password = "cpsc471db";
+$dbname = "finalProject";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT name, type, barcode, color, price, size, gender, quantity, description, url FROM items";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+	$i = 0; 
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+        //echo "name: " . $row["name"]. " - type: " . $row["type"]. "color " . $row["color"]. "<br>";
+        //echo "<strong>" . $i ."</strong>";
+        if($i % 3 == 0){
+        	//echo "add new row";
+        	echo "<div class=row>";
+        }
+        // here add column of data 
+        echo
+	        "<div class=\"column\">
+	    		<button onclick=\"myFunction()\">
+	      		<img src=\"" . $row["url"] .  "\" alt=\"Shoes\" class = \"image\">
+	      		<div class=\"overlay\">
+	        		<h5> Type:" . $row["type"] . "<br> Color:" . $row["color"] . "<br> Price:" .$row["price"] . "<br> Gender:" . $row["gender"] . "<br> Size:" . $row["size"] .  "<br> Quantity:" .$row["quantity"] . "<br> Barcode:" .$row["barcode"]. "</h5>
+	      		</div>
+	  			</button>
+	  		</div>";
+
+        if($i % 3 == 2){
+        	//echo "add closing tag";
+        	echo "</div>";
+        }
+        $i +=1;
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
 ?>
+
+
+<!DOCTYPE html>
+<html>
+
+
+
+<script>
+  function myFunction(){
+    confirm("Product added to cart");
+  }
+</script>
+</body>
+</html>
