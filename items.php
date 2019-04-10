@@ -18,7 +18,7 @@
 		if ($_SESSION['loggedin'] == true)
 		{
 			echo "<a href=\"logout.php\" class=\"button\">Logout</a>";
-			echo "<a href=\"shoppingCart.php\" class=\"button\">Purchase</a>";
+			echo "<a href=\"shoppingCart.php\" class=\"button\">Shopping cart</a>";
 		}
   ?>
 </div>
