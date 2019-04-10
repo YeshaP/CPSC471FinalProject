@@ -22,23 +22,21 @@
 	$url=$_POST['url'];
 
 	// Check if product already exists
-    $sql = "SELECT * FROM items WHERE barcode='$barcode' LIMIT 1";
+    $sql = "SELECT * FROM items WHERE barcode='$barcode'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
-        $sql = "UPDATE items WHERE barcode='$barcode' SET quantity='$quantity'";
+        $sql = "UPDATE items SET quantity='$quantity' WHERE barcode='$barcode'";
+        $result = mysqli_query($conn, $sql);
         echo "Product quantity has been updated";
-        header('Location: addProduct.php');
+        $conn->close();
+        header('Location: addProduct.html');
     }
-
-
-
-	$sql = "INSERT INTO items VALUES('$type', '$barcode', '$color', '$price', '$size', '$gender', '$quantity', '$description', '$url')";
-
-	if ($conn->multi_query($sql) === TRUE) {
-    echo "Product has been added";
-		header('Location: addProduct.php');
-	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
+    else
+    {
+		$sql = "INSERT INTO items VALUES('$type', '$barcode', '$color', '$price', '$size', '$gender', '$quantity', '$description', '$url')";
+		$result = mysqli_query($conn, $sql);
+		$conn->close();
+		header('Location: addProduct.html');
 	}
 
 	$conn->close();
