@@ -25,7 +25,7 @@
     $sql = "SELECT * FROM items WHERE barcode='$barcode' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
-        $sql = "UPDATE items SET quantity='$quantity'";
+        $sql = "UPDATE items WHERE barcode='$barcode' SET quantity='$quantity'";
         echo "Product quantity has been updated";
         header('Location: addProduct.php');
     }
