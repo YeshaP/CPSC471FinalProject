@@ -17,6 +17,8 @@
 		if ($_SESSION['loggedin'] == true)
 		{
 			echo "<a href=\"logout.php\" class=\"button\">Logout</a>";
+			
+			//if count(shoppingcart with username='' <> 0)
 			echo "<a href=\"confirmpurchase.php\" class=\"button\">Purchase</a>";
 		}
   ?>
@@ -50,17 +52,17 @@
 			while($row = mysqli_fetch_assoc($result))
 			{
 				echo "<div style=\"border-style: dotted; display: inline-block; background-color: white; padding: 0;margin-top: 20px;margin-left: 10px;margin-right: 2px;margin-bottom: 20px;text-align:center;\">
-				</center><img src='$row[url]' height='300px' width='200px' border-style='solid'/>
+			</center><img src='$row[url]' height='300px' width='200px' border-style='solid'/>
 				<br/>
-				<h5 style=\"background-color: #white;display: inline-block;text-align:center; margin-bottom:5px\"> 
+				<h5 style=\"background-color: white;display: inline-block;text-align:center; margin-bottom:5px\"> 
 				<p style=\"color:black; background-color: #white\" >
 					Quantity: $row[quantity]
 					<br> Barcode: $row[barcode]
 					</h5><br><br>
 				<form method=\"POST\" action=\"update.php\">
-					<input type=\"number\" name=\"quanti\" value=\"$row[quantity]\" />
+					<input type=\"number\" name=\"quanti\" value=\"$row[quantity]\"/>
 					<input type=\"hidden\" value=\"$row[barcode]\" name=\"var\" />
-					<input type=\"submit\" value=\"Add to cart\" />
+					<input type=\"submit\" value=\"Update\" />
 				</form>
 				</div>";
 			}
