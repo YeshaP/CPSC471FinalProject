@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 10, 2019 at 03:23 AM
+-- Generation Time: Apr 11, 2019 at 03:31 AM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -51,7 +51,10 @@ INSERT INTO `customers` (`username`, `first_name`, `middle_name`, `last_name`, `
 ('Ben', 'Benjamin', 'A', 'Macdonald', 'Downtown Ave', 'Calgary', 'Alberta', 'Canada', 'V9H9H9', 'bennie', 0),
 ('jonathan@yahoo.ca', 'Jonathan', 'A', 'Mcnuggits', 'Streetave', 'Saskatoon', 'Saskatchewan', 'Canada', 'H1H1H1', 'johnny', 0),
 ('jimbob', 'jim', 'a', 'bob', '419 0129', 'Citad', 'Somewhere', 'Country', 'A1A1A1', 'jimbob', 0),
-('anton', 'Anton', 'A', 'Anton', 'aokfokweg', 'okaaa', 'hello', 'Germany', 'A901920', 'anton', 0);
+('anton', 'Anton', 'A', 'Anton', 'aokfokweg', 'okaaa', 'hello', 'Germany', 'A901920', 'anton', 0),
+('admin', 'Jack', 'J', 'Jack', 'University', 'Calgary', 'Alberta', 'Canada', 'T6T6T6', 'admin', 0),
+('woekfoewkf', 'abcd', 'abcd', 'abcd', 'okoektoew', 'ijweijw', 'owkegokweg', 'wojwoekgew', '8729u12nr1', 'abcd', 0),
+('testing', 'John', 'A', 'Smith', 'Hamburg Drive', 'Hamburg', 'Lower Saxony', 'Germany', '70173', 'testing', 0);
 
 -- --------------------------------------------------------
 
@@ -87,29 +90,34 @@ INSERT INTO `employees` (`ID`, `username`, `first_name`, `middle_name`, `last_na
 --
 
 CREATE TABLE `items` (
-  `name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `type` text COLLATE utf8_unicode_ci NOT NULL,
   `barcode` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `color` text COLLATE utf8_unicode_ci NOT NULL,
-  `price` int(3) NOT NULL,
+  `price` int(5) NOT NULL,
   `size` text COLLATE utf8_unicode_ci NOT NULL,
   `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `quantity` int(4) NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `url` varchar(400) COLLATE utf8_unicode_ci NOT NULL
+  `url` varchar(600) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`name`, `type`, `barcode`, `color`, `price`, `size`, `gender`, `quantity`, `description`, `url`) VALUES
-('White Shoe', 'Shoe', '1234', 'White', 90, 'M', 'O', 2, 'Comfortable white shoes', 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923'),
-('Grey Jacket', 'Jacket', '2123', 'Grey', 120, 'M', 'O', 3, 'Cozy winter jacket!', 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
-('Blue Top', 'Top', '1345', 'Blue', 50, 'M', 'W', 1, 'Soft beautiful top!', 'https://www.bfgcdn.com/1500_1500_90/114-1236-0211/prana-womens-sway-tank-yoga-tops.jpg'),
-('Running shoes', 'Shoes', '2234', 'Blue', 125, 'M', 'O', 3, 'Comfy running shoes', 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6846215/2018/7/4/a76129c0-5393-4be9-92e6-f50a767e172d1530708777706-Columbus-Men-Navy-Blue-Running-Shoes-9971530708777505-1.jpg'),
-('Black Jacket', 'Jacket', '1456', 'Black', 130, 'M', 'F', 8, 'Cozy winter jacket!', 'http://www.kimscotch.com/images/booztNewBalance-us/14287688.jpg'),
-('Grey Top', 'Top', '2345', 'Grey', 40, 'M', 'M', 4, 'Slick grey top.', 'https://images-na.ssl-images-amazon.com/images/I/91RUNc0BO%2BL._UX342_.jpg');
+INSERT INTO `items` (`type`, `barcode`, `color`, `price`, `size`, `gender`, `quantity`, `description`, `url`) VALUES
+('Socks', '1001114', 'White', 9, 'O', 'M+F', 99, 'Comfy warm socks', 'https://www.wigwam.com/products/images/Product/large/S1221_1_.jpg'),
+('T-Shirt', '1001113', 'Gray', 20, 'M', 'M+F', 15, 'Coding shirt', 'https://cdn.shopify.com/s/files/1/0051/4802/products/i-octocat-code_600x600.png?v=1520399372'),
+('T-Shirt', '1001112', 'Navy', 29, 'S', 'M+F', 95, '100% Cotton Navy T-Shirt', 'https://rendering.documents.cimpress.io/v1/vp/preview?width=690&height=690&quality=80&scene=https://scene.products.cimpress.io/v1/scenes/39fff789-7ad5-4b08-8faf-753d0c960f48'),
+('Jacket', '1456', 'Black', 130, 'M', 'F', 8, 'Cozy winter jacket!', 'http://www.kimscotch.com/images/booztNewBalance-us/14287688.jpg'),
+('Top', '2345', 'Grey', 40, 'M', 'M', 4, 'Slick grey top.', 'https://images-na.ssl-images-amazon.com/images/I/91RUNc0BO%2BL._UX342_.jpg'),
+('T-Shirt', '1001111', 'Gray', 50, 'L', 'M+F', 31, 'Soft blue t-shirt', 'https://de9luwq5d40h2.cloudfront.net/catalog/product/large_image/05_407044.jpg'),
+('Shoe', '1234', 'White', 90, 'M', 'O', 2, 'Comfortable white shoes', 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923'),
+('Jacket', '2123', 'Grey', 120, 'M', 'O', 3, 'Cozy winter jacket!', 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
+('Socks', '1001115', 'Gray', 11, 'O', 'M', 99, 'Quirky dress socks', 'https://cdn11.bigcommerce.com/s-4np45xy/images/stencil/1024x1024/products/574/1912/Chicago_Flag_Crew_Socks_Mens__98704.1507134945.jpg?c=2'),
+('Jacket', '1001116', 'Brown', 149, 'M', 'M', 10, 'Stylish brown jacket', 'https://www.elisfrroku.com/ambiant/images/jacket.jpg'),
+('Socks', '1001117', 'Multi-colored', 9, 'M', 'F', 5, 'Colorful socks!', 'https://cdn11.bigcommerce.com/s-j602wc6a/images/stencil/300x300/products/6572/23541/cosmos-recycled-cotton-socks-w__56287.1502809283.jpg'),
+('Suit', '1001119', 'Brown', 399, 'M', 'F', 3, 'Beautiful suit', 'https://thrilling.imgix.net/s/files/1/0118/0132/9723/products/DSC_0250_ref_3_Shopify_Maximum_4472x4472.png');
 
 -- --------------------------------------------------------
 
@@ -118,21 +126,22 @@ INSERT INTO `items` (`name`, `type`, `barcode`, `color`, `price`, `size`, `gende
 --
 
 CREATE TABLE `purchase` (
-  `card_number` int(10) NOT NULL,
+  `card_number` bigint(200) NOT NULL,
   `card_type` text NOT NULL,
   `username` text NOT NULL,
   `expiry_month` int(2) NOT NULL,
-  `expiry_year` int(2) NOT NULL
+  `expiry_year` int(2) NOT NULL,
+  `totalprice` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`card_number`, `card_type`, `username`, `expiry_month`, `expiry_year`) VALUES
-(1249129491, 'VISA', 'jonathan@yahoo.ca', 0, 0),
-(1249129491, 'VISA', 'jonathan@yahoo.ca', 0, 0),
-(1234567788, 'Debit', 'jonathan@yahoo.ca', 0, 12);
+INSERT INTO `purchase` (`card_number`, `card_type`, `username`, `expiry_month`, `expiry_year`, `totalprice`) VALUES
+(3193681968918691, 'VISA', 'jimbob', 6, 19, 168),
+(1939316913691369, 'VISA', 'jimbob', 11, 19, 168),
+(1112912848128481, 'MasterCard', 'jimbob', 8, 19, 137);
 
 -- --------------------------------------------------------
 
@@ -152,12 +161,12 @@ CREATE TABLE `shopping_cart` (
 --
 
 INSERT INTO `shopping_cart` (`username`, `barcode`, `quantity`, `url`) VALUES
-('jimbob', '1234', 1, 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923'),
-('jimbob', '2123', 2, 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
-('jimbob', '1345', 3, 'https://www.bfgcdn.com/1500_1500_90/114-1236-0211/prana-womens-sway-tank-yoga-tops.jpg'),
-('jimbob', '2234', 2, 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6846215/2018/7/4/a76129c0-5393-4be9-92e6-f50a767e172d1530708777706-Columbus-Men-Navy-Blue-Running-Shoes-9971530708777505-1.jpg'),
-('jimbob', '1456', 3, 'http://www.kimscotch.com/images/booztNewBalance-us/14287688.jpg'),
-('jimbob', '2345', 1, 'https://images-na.ssl-images-amazon.com/images/I/91RUNc0BO%2BL._UX342_.jpg');
+('testing', '1001113', 2, 'https://cdn.shopify.com/s/files/1/0051/4802/products/i-octocat-code_600x600.png?v=1520399372'),
+('testing', '1001117', 1, 'https://cdn11.bigcommerce.com/s-j602wc6a/images/stencil/300x300/products/6572/23541/cosmos-recycled-cotton-socks-w__56287.1502809283.jpg'),
+('testing', '2123', 1, 'https://i.ebayimg.com/images/g/VusAAOSwSrNaGQGx/s-l300.jpg'),
+('jimbob', '1001114', 1, 'https://www.wigwam.com/products/images/Product/large/S1221_1_.jpg'),
+('jimbob', '1001116', 1, 'https://www.elisfrroku.com/ambiant/images/jacket.jpg'),
+('jimbob', '1234', 1, 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:F2F2F2/https://cdn.shopify.com/s/files/1/2804/0750/products/ChalkTreeRunnerToe_0954a783-46fe-4073-81b7-f6f1c30b8dc5.png?v=1541457923');
 
 --
 -- Indexes for dumped tables
