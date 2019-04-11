@@ -26,20 +26,30 @@
 	
 	if ($quanti > $_quantityItems)
 	{
-		$_quantityShoppingCart == $_quantityItems;
+		$_quantityShoppingCart = $_quantityItems;
 		
 		$sql = "UPDATE shopping_cart SET quantity='$_quantityShoppingCart' WHERE barcode='$_barcode'";
 		$result = mysqli_query($conn, $sql);
 		
+		$conn->close();
+		header('Location: shoppingCart.php');
+	}
+	else if ($quanti > 0)
+	{
+		$_quantityShoppingCart = $quanti;
+		
+		$sql = "UPDATE shopping_cart SET quantity='$_quantityShoppingCart' WHERE barcode='$_barcode' and username='$uname'";
+		$result = mysqli_query($conn, $sql);
+		
+		$conn->close();
 		header('Location: shoppingCart.php');
 	}
 	else
 	{
-		$_quantityShoppingCart == $_quanti;
-		
-		$sql = "UPDATE shopping_cart SET quantity='$_quantityShoppingCart' WHERE barcode='$_barcode'";
+		$sql = "DELETE FROM shopping_cart WHERE barcode='$_barcode'";
 		$result = mysqli_query($conn, $sql);
 		
+		$conn->close();
 		header('Location: shoppingCart.php');
 	}
 	
