@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <h1>User Registration</h1>
+  <h1>Payment Information</h1>
   
   <?php
   
