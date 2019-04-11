@@ -20,5 +20,5 @@
     
     $fieldinfo = mysqli_fetch_field($result);
     
-	header('Location: paymentPage.html');
+	header('Location: paymentPage.php');
 ?>
