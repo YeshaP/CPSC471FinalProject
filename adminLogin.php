@@ -13,7 +13,7 @@
 
 	<?php
 
-		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['admin'] == true)
 		{
 			header('Location: selection.html');
 		}
